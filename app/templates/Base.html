@@ -1,0 +1,138 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Charity Website</title>
+
+<!-- For-Mobile-Apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Cubicle a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+
+<!-- Custom-Theme-Files -->
+	<!-- Bootstrap-Core-CSS --> <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- Style.CSS --> <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Owl-Carousel-CSS --> <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+	<!-- Swipe-Box-CSS --> <link rel="stylesheet" href="{% static 'css/swipebox.css' %}">
+	<!-- Animate-CSS --> <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+<!-- //Custom-Theme-Files -->
+
+<script>
+	$(function() {
+		$(".meter > span").each(function() {
+			$(this)
+			.data("origWidth", $(this).width())
+			.width(0)
+			.animate({
+				width: $(this).data("origWidth")
+			}, 1200);
+		});
+	});
+</script>
+
+<!-- Web-Fonts -->
+	<link href='//fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<!-- //Web-Fonts -->
+
+</head>
+<body>
+
+	<!-- Header -->
+	<div class="header">
+
+		<div class="container">
+
+			<!-- Navigation -->
+			<nav class="navbar navbar-inverse navbar-default">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Logo -->
+					<div class="logo">
+
+								<a class="navbar-brand button" href="/home/" <img src=care.png ><img src="{% static 'images/logo.png' %}" alt="logo" /></a>
+
+
+					</div>
+					<!-- //Logo -->
+				</div>
+
+				<div id="navbar" class="navbar-collapse navbar-right collapse">
+					<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+						<div id="navbar" class="navbar-collapse navbar-right collapse">
+							<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+								<li><a class="cross-effect" href="#features">Features</a></li>
+								<li><a class="cross-effect" href="#about">About</a></li>
+								<li><a class="cross-effect" href="#Orgnizations">Donate</a></li>
+								<li><a class="cross-effect" href="#Orgnizations">Sign In</a></li>
+								<li><a class="cross-effect" href="#Orgnizations">Sign Out</a></li>
+								<li><a class="cross-effect" href="#Orgnizations">Register</a></li>
+
+					</ul>
+				</div><!-- //Navbar-Collapse -->
+
+			</nav>
+			<!-- //Navigation -->
+
+		</div>
+
+	</div>
+	
+
+	{% block body %}
+	{% endblock %}
+
+</body>
+
+{% block content %}
+{% endblock %}
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<div class="footer-info slideanim">
+
+				<div class="col-md-3 col-sm-3 footer-info-grid address">
+					<h4>ADDRESS</h4>
+					<address>
+						<ul>
+							<li>Kuwait</li>
+							<li>Kuwait City</li>
+							<li>Jaber AlAhmad St.</li>
+							<li>Telephone : +965 51510665</li>
+						</ul>
+						<p>Email : <a class="mail" href="mailto:cbaproject30@gmail.com">info(at)charity.com</a></p>
+					</address>
+				</div>
+				<div class="col-md-3 col-sm-3 footer-info-grid email">
+					<h4>NEWSLETTER</h4>
+					<p>Subscribe to our newsletter and we will inform you about newest projects and promotions.
+					</p>
+
+					<form class="newsletter">
+						<input class="email" type="email" placeholder="Your email...">
+						<input type="submit" class="submit" value="">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="copyright slideanim">
+				<p>&copy; 2017 Charity. All Rights Reserved </a></p>
+			</div>
+
+		</div>
+	</div>
+	<!-- //Footer -->

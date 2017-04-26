@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{{ charity.Name }}
+<br>  
+{{ charity.Email }}
+<br>  
+{{ charity.Phone }}
+<br> 
+{{ charity.Fax }}
+<br> 
+<div class="item active">
+      <img src="/media/{{charity.Logo}}" />
+ </div>
+<br> 
+{{ charity.AboutUs }}
+<br> 
+{{ charity.Website }}
+<br>
+
+{% endblock %}
