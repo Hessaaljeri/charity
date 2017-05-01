@@ -1,9 +1,49 @@
-{% extends 'base.html' %}
+{% extends "Base.html" %}
+{% load staticfiles %}
 
 {% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-{% for Charity in charities %}
- <li>{{ Charity.Name }} <a href="/detail/{{Charity.pk}}"class="button4">more details..</a></li> <hr></br>
-{% endfor %}
+    <!-- Page Content -->
+    
+
+    <div class="container">
+{% for c in charities %}
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive" src="/static/img/{{c.Logo}}" alt="" width="200" height="40" >
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>{{c.Name}}</h3>
+                <br>
+                <p>{{c.AboutUs}}</p>
+                <br>
+                <a class="btn btn-primary" href="#">View more.. <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+
+    {% endfor %}
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 {% endblock %}

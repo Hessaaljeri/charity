@@ -1,14 +1,45 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block title %}{% trans "Resend Activation Email" %}{% endblock %}
 
 {% block content %}
-<form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span>Resend Activation</span></a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+        
+<br>
+<br>
+<br>
+<div class='row'>
+    <div class='col-md-4 col-md-offset-4'>
+		<form method="post" action="">
+		    {% csrf_token %}
+		    {{ form|crispy }}
+		    <input type="submit" class="btn btn-sm btn-default" value="{% trans 'Submit' %}" />
+		</form>
+	</div>
+</div>
+<br>
+<br>
+<br>
 {% endblock %}
 
 

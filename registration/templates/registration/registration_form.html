@@ -14,27 +14,33 @@
 <br>
 <br>
 <br>
-
-
         
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="text-center">Register</h1>
-                    </div>
-                </div>
-            </div>
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span>Register</span></a></li>
+
+                        </ul>
+                    </nav>
+
+        </div>
         
-
-
-<div class="row">
-	<div class="center-items">
-		<form method="post" action="">
-		    {% csrf_token %}
-		    {{ form|crispy }}
-		    <input type="submit" class="btn btn-sm btn-default" value="{% trans 'Submit' %}" />
-		</form>
-	</div>
+<br>
+<br>
+<div class='row'>
+    <div class='col-md-4 col-md-offset-4'>
+        <div class="center-block">
+        		<form method="post" action="">
+        		    {% csrf_token %}
+        		    {{ form|crispy }}
+        		    <input type="submit" class="btn btn-sm btn-default" value="{% trans 'Submit' %}" />
+        		</form>
+                <br>
+                <hr>
+                <br>
+                <p class="text-center">{% trans "Already a member?" %} <a href="{% url 'auth_login' %}">{% trans "Login Here" %}</a>.</p>
+        </div>
+    </div>
 </div>
 <br>
 <br>
@@ -45,16 +51,3 @@
 <br>
 
 {% endblock %}
-
-
-{% comment %}
-**registration/registration_form.html**
-Used to show the form users will fill out to register. By default, has
-the following context:
-
-``form``
-    The registration form. This will be an instance of some subclass
-    of ``django.forms.Form``; consult `Django's forms documentation
-    <http://docs.djangoproject.com/en/dev/topics/forms/>`_ for
-    information on how to display this in a template.
-{% endcomment %}

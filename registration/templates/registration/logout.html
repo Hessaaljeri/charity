@@ -1,8 +1,42 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block title %}{% trans "Logged out" %}{% endblock %}
 
 {% block content %}
-<p>{% trans "Successfully logged out" %}.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <br>
+<br>
+<br>
+      
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span><p>{% trans "Successfully logged out" %}.</p></span></a></li>
+
+                        </ul>
+                    </nav>
+                    <hr>
+		<p class="text-center">{% trans "Login" %} <a href="{% url 'auth_login' %}">{% trans "Here" %}</a>.</p>
+		<p class="text-center">{% trans "Not a member?" %} <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+        </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 {% endblock %}

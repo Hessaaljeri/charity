@@ -46,6 +46,9 @@ LOGIN_REDIRECT_URL = '/home/'
 #Google Maps
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAhX-UoUgz8mh61EHxTGjCQE20t5RNVLAs'
 
+#crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 # Application definition
 
 INSTALLED_APPS = (

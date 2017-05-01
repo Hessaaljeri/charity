@@ -67,6 +67,10 @@
 					</div>
 					<!-- //Logo -->
 				</div>
+								{% if user.is_authenticated %}
+                                <span>Welcome: {{ user }}</span>
+                                {% elif user.is_anonymous %}
+                                {% endif %}
 
 				<div id="navbar" class="navbar-collapse navbar-right collapse">
 					<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
@@ -74,10 +78,17 @@
 							<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
 								<li><a class="cross-effect" href="#features">Features</a></li>
 								<li><a class="cross-effect" href="#about">About</a></li>
-								<li><a class="cross-effect" href="#Orgnizations">Donate</a></li>
-								<li><a class="cross-effect" href="#Orgnizations">Sign In</a></li>
-								<li><a class="cross-effect" href="#Orgnizations">Sign Out</a></li>
-								<li><a class="cross-effect" href="#Orgnizations">Register</a></li>
+								<li><a class="cross-effect" href="#contact">Contact</a></li>
+								<li><a class="cross-effect" href="/list/">Donate</a></li>
+								
+								
+								{% if user.is_anonymous %}
+								<li><a class="cross-effect" href="{% url 'registration_register' %}">Register</a></li>
+								<li><a class="cross-effect" href="{% url 'auth_login' %}">Login</a></li>
+								{% elif user.is_authenticated %}
+								<li><a class="cross-effect" href="{% url 'auth_logout' %}">Logout</a></li>
+
+								{% endif %}
 
 					</ul>
 				</div><!-- //Navbar-Collapse -->
@@ -136,3 +147,92 @@
 		</div>
 	</div>
 	<!-- //Footer -->
+<!-- Custom-JavaScript-File-Links -->
+	<!-- Supportive-JavaScript --> <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- Necessary-JavaScript-File-For-Bootstrap --> <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<!-- Slideanim-JavaScript -->
+	<script type="text/javascript">
+		$(window).scroll(function() {
+	 		$(".slideanim").each(function(){
+				var pos = $(this).offset().top;
+				var winTop = $(window).scrollTop();
+					if (pos < winTop + 600) {
+					$(this).addClass("slide");
+				}
+			});
+		});
+	</script>
+	<!-- //Slideanim-JavaScript -->
+
+	<!-- Gallery-Tab-JavaScript -->
+	<script src="{% static 'js/cbpFWTabs.js' %}"></script>
+	<script>
+		(function() {
+			[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+				new CBPFWTabs( el );
+			});
+		})();
+	</script>
+	<!-- //Gallery-Tab-JavaScript -->
+
+	<!-- Swipe-Box-JavaScript -->
+		<script src="{% static 'js/jquery.swipebox.min.js' %}"></script>
+			<script type="text/javascript">
+				jQuery(function($) {
+					$(".swipebox").swipebox();
+				});
+		</script>
+	<!-- //Swipe-Box-JavaScript -->
+
+	<!-- Owl-Carousel-JavaScript -->
+	<script src="{% static 'js/owl.carousel.js' %}"></script>
+	<script>
+		$(document).ready(function() {
+			$("#owl-demo").owlCarousel ({
+				items : 8,
+				lazyLoad : true,
+				autoPlay : true,
+				speed: 900,
+				pagination : false,
+			});
+		});
+	</script>
+	<!-- //Owl-Carousel-JavaScript -->
+
+	<!-- Slide-To-Top JavaScript (No-Need-To-Change) -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 100,
+				easingType: 'linear'
+			};
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 0;"> </span></a>
+	<!-- //Slide-To-Top JavaScript -->
+
+	<!-- Smooth-Scrolling-JavaScript -->
+	<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll, .navbar li a, .footer li a").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //Smooth-Scrolling-JavaScript -->
+
+	<!-- Skills-Animation-JavaScript -->
+	<script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/mousescroll.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+	<!-- //Skills-Animation-JavaScript -->
+
+	<script type="text/javascript" src="{% static 'js/numscroller-1.0.js' %}"></script>

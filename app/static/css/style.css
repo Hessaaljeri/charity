@@ -2520,12 +2520,7 @@ a.mail:hover {
 }
 
 /*-- //custome Code --*/
-.center-items {
-	height: 300px;
-	width: 300px;
-	position: absolute;
 
-	margin: -150px 0 0 -150px;
-	left: 50%;
-	top: 80%;
-}
+
+
+

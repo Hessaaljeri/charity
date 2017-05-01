@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
 from django.conf import settings
 from app.models import *
 from app.forms import EmailForm
@@ -15,18 +16,27 @@ def email_submission(request):
 	print form
 	if form.is_valid():
 		print "form is valid"
-		name = form.cleaned_data.get('name')
+		fullname = form.cleaned_data.get('fullname')
 		email = form.cleaned_data.get('email')
+		subject = form.cleaned_data.get('subject')
 		message = form.cleaned_data.get('message')
-		recipients = [email]
+		subject = 'Site contact form'
+		from_email = settings.EMAIL_HOST_USER
 
-		# send_mail(subject, message, from_email, recipient_list, fail_silently=False, auth_user=None, auth_password=None, connection=None, html_message=None)
-		send_mail(name, ('From: %s - Message: %s' % (email, message)), email, ['cbaproject30@gmail.com'], fail_silently=True)
+		to_email = [from_email, 'haljeri@icloud.com']
+		contact_message = "%s: %s via %s"%(
+				fullname,  
+				message, 
+				email,)
+
+		send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
 		# return HttpResponseRedirect('/thankyou/')
 	context = {
 		"form": form,
 	}
 
+	print "email sent"
+	return HttpResponseRedirect('/home/')
 
 def charity_list(request):
 	context = {}

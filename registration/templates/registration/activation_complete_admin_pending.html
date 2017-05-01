@@ -4,12 +4,39 @@
 {% block title %}{% trans "Account Activated" %}{% endblock %}
 
 {% block content %}
-<p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span>Activation</span></a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+        
+<br>
+<br>
+<br>
+
+<p class="text-center">
     {% trans "Your account is now activated." %}
     {% if not user.is_authenticated %}
     {% trans "Once a site administrator activates your account you can login." %}
     {% endif %}
 </p>
+<br>
+<br>
+<br>
 {% endblock %}
 
 
