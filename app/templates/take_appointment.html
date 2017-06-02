@@ -1,0 +1,44 @@
+{%extends "base.html"%} {% block media %} {{ form.media }} {% endblock %} 
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span>Make an Appointment</span></a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+        
+<br>
+<br>
+
+<p class="text-center">Please fill out the form below with your information for a pick up and we'll call you as soon as possible!</p>
+<div class='row'>
+    <div class='col-md-4 col-md-offset-4'>
+       
+        <form method="post" action="{% url 'appointment_create' %}">
+            <br> {% csrf_token %} {{ form|crispy}}
+
+            <input class="btn btn-default btn-primary" type="submit" value="Done"> 
+        </form>
+    </div>
+</div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

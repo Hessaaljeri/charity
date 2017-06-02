@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h1>Available Appointments</h1>
+<br>
+<div class="list-group">
+  {% for a in appointments %}
+    </br>
+    <a class="list-group-item" href="{% url 'appointment_details' a.id %}">
+      </br>    <span class="badge">
+       {{a.date_time}}
+    </span>
+    <h4 style="text-align:left;" class="list-group-item-heading">Name: {{a.name}}</h4> ​
+    <p class="list-group-item-text">Phone Number: {{a.phone}}</p>
+    ​ </a>
+    <br>
+    <br>
+    <br>
+  {% empty %}
+
+  <h2>
+    There is no appointment available
+  </h2>
+  <br>
+  <br>
+  <br>
+
+
+  </ul>
+  {% endfor %} {% endblock %}

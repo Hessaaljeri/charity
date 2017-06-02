@@ -39,10 +39,28 @@
 	<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <!-- //Web-Fonts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- missing code -->
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+{% block media %} 
+{% endblock %}
 
 </head>
 <body>
 
+<!-- messages -->
+		{% if messages %}
+				{% for message in messages %}
+				<div class="alert{% if message.tags %} {{ message.tags}}{% endif %} .alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+		</button>
+						{{ message }}
+			 </div>
+			 {% endfor %}
+		{% endif %}
+	
 	<!-- Header -->
 	<div class="header">
 
@@ -50,7 +68,8 @@
 
 			<!-- Navigation -->
 			<nav class="navbar navbar-inverse navbar-default">
-
+				<nav class="navbar navbar-inverse navbar-default">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
@@ -60,10 +79,7 @@
 					</button>
 					<!-- Logo -->
 					<div class="logo">
-
-								<a class="navbar-brand button" href="/home/" <img src=care.png ><img src="{% static 'images/logo.png' %}" alt="logo" /></a>
-
-
+						<a class="navbar-brand button" href="/home/" <img src=care.png ><img src="{% static 'images/logo.png' %}" alt="logo" /></a>
 					</div>
 					<!-- //Logo -->
 				</div>
@@ -76,12 +92,14 @@
 					<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
 						<div id="navbar" class="navbar-collapse navbar-right collapse">
 							<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
-								<li><a class="cross-effect" href="#features">Features</a></li>
-								<li><a class="cross-effect" href="#about">About</a></li>
-								<li><a class="cross-effect" href="#contact">Contact</a></li>
-								<li><a class="cross-effect" href="/list/">Donate</a></li>
-								
-								
+								<li><a class="cross-effect" href="{% url 'home' %}">Home</a></li>
+								<li><a class="cross-effect" href="{% url 'aboutus' %}">About Us</a></li>
+								<li><a class="cross-effect" href="{% url 'contactus' %}">Contact</a></li>
+								<li><a class="cross-effect" href="{% url 'select' %}">Donate</a></li>
+								<!--{% if user.is_superuser %}
+								<li><a class="cross-effect" href="{% url 'appointment_list' %}">test</a></li>
+								{% endif %}-->
+
 								{% if user.is_anonymous %}
 								<li><a class="cross-effect" href="{% url 'registration_register' %}">Register</a></li>
 								<li><a class="cross-effect" href="{% url 'auth_login' %}">Login</a></li>
@@ -90,27 +108,29 @@
 
 								{% endif %}
 
+
 					</ul>
 				</div><!-- //Navbar-Collapse -->
 
 			</nav>
 			<!-- //Navigation -->
 
+
 		</div>
 
 	</div>
-	
+
 
 	{% block body %}
 	{% endblock %}
 
 </body>
-
 {% block content %}
 {% endblock %}
 
 	<!-- Footer -->
 	<div class="footer">
+
 		<div class="container">
 
 			<div class="footer-info slideanim">
@@ -139,10 +159,19 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-
+			<!--Paypal-->
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="T5HGSHQXZX4K8">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 			<div class="copyright slideanim">
 				<p>&copy; 2017 Charity. All Rights Reserved </a></p>
 			</div>
+			
+
+
 
 		</div>
 	</div>

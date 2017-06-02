@@ -1,7 +1,6 @@
-{% extends "Base.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
-
-{% block body %}
+{% block content %}
 <br>
 <br>
 <br>
@@ -13,37 +12,32 @@
 <br>
 <br>
 
-    <!-- Page Content -->
-    
+                <div class="tabs tabs-style-bar slideanim">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-bar-1" class="icon icon-box"><span><h2>Available Charities</h2></span></a></li>
 
-    <div class="container">
+                        </ul>
+                    </nav>
+                </div>
+        
+<br>
+<br>
+
+<body>
+<div class="list-group">
 {% for c in charities %}
-        <!-- Project One -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="/static/img/{{c.Logo}}" alt="" width="200" height="40" >
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>{{c.Name}}</h3>
-                <br>
-                <p>{{c.AboutUs}}</p>
-                <br>
-                <a class="btn btn-primary" href="#">View more.. <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-        <hr>
+    <a class="list-group-item" href="{% url 'detail' c.pk %}">
+      </br>    <span class="badge">
+<img src="/static/img/{{c.Logo}}" alt="face" style="width:200px;height:200px;" >
+   </span>
+</br>
+    <h3>{{c.Name}}</h3>
+    <h4 style="text-align:left;color:black;" class="list-group-item-heading">About Us:  </br>  {{c.AboutUs}}</h4> ​
+    <p style="text-align:left;color:black;" class="list-group-item-text">Phone:  </br>  {{c.Phone}}</p>
+    ​ </a>
+<br>
+  </ul>
 
-    {% endfor %}
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="{% static 'js/jquery.js' %}"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-{% endblock %}
+</body>
+  {% endfor %} {% endblock %}

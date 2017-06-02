@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#contact
+# contact
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -35,7 +35,7 @@ EMAIL_HOST_USER = 'cbaproject30@gmail.com'
 EMAIL_HOST_PASSWORD = 'project2017'
 EMAIL_PORT = 587
 
-#registration redux
+# registration redux
 REGISTRATION_OPEN = True
 SITE_ID = 2
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -43,10 +43,10 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/home/'
 
-#Google Maps
+# Google Maps
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAhX-UoUgz8mh61EHxTGjCQE20t5RNVLAs'
 
-#crispy forms
+# crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Application definition
@@ -63,6 +63,8 @@ INSTALLED_APPS = (
     'app',
     'geoposition',
     'crispy_forms',
+    'datetimewidget',
+
 
 )
 
@@ -128,7 +130,15 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_TAGS = {
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.ERROR: 'alert-danger',
+}
